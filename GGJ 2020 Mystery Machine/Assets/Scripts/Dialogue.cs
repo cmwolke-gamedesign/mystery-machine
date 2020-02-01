@@ -8,6 +8,7 @@ public class Dialogue : MonoBehaviour {
   public static Dialogue Instance;
   public TMPro.TextMeshProUGUI characterDialogue;
   public float dialogueDisplayTime = 3f;
+  public float dialogueAppearTime = 0.025f;
   public bool talking { private set; get;}
 
   private Queue<string[]> dialogueQueue;
@@ -40,7 +41,7 @@ public class Dialogue : MonoBehaviour {
     {
       foreach(char c in nextSnippet) 
       {
-        yield return new WaitForSeconds(0.025f);
+        yield return new WaitForSeconds(dialogueAppearTime);
         this.characterDialogue.text += c;
       }
       yield return new WaitForSeconds(dialogueDisplayTime);
