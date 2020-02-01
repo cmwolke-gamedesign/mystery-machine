@@ -35,8 +35,8 @@ public class Dialogue : MonoBehaviour {
 
   private IEnumerator Say(string[] textSnippets) 
   {
-    this.talking = true;
-      this.characterDialogue.text = "";
+    Player.Instance.SetPlayerControls(false);
+    this.characterDialogue.text = "";
     foreach(string nextSnippet in textSnippets) 
     {
       foreach(char c in nextSnippet) 
@@ -49,8 +49,7 @@ public class Dialogue : MonoBehaviour {
     }
     yield return new WaitForSeconds(0.5f);
     this.characterDialogue.text = "";
-    this.talking = false;
-
+    Player.Instance.SetPlayerControls(true);
   }
 
   public void SaySomething(string[] bla) 

@@ -25,7 +25,7 @@ public class Player : MonoBehaviour
     private SpriteRenderer _sr;
     private bool justPickedUpItem = false;
 
-    private bool _mayControl;
+    private bool _mayControl = true;
 
     void Start()
     {
