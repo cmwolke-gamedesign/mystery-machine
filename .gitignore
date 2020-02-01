@@ -10,6 +10,10 @@
 /[Ll]ogs/
 /[Mm]emoryCaptures/
 
+GGJ 2020 Mystery Machine/Library/**
+/GGJ 2020 Mystery Machine/Library/**
+**/GGJ 2020 Mystery Machine/Library/**
+
 # Asset meta data should only be ignored when the corresponding asset is also ignored
 !/[Aa]ssets/**/*.meta
 
