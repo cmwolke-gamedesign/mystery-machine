@@ -10,7 +10,7 @@ public class MusicManager : MonoBehaviour
     public AudioClip[] progressMusic;
     public AudioClip[] endMusic;
 
-    private AudioSource audio;
+    private AudioSource ac;
 
     private int currentMusicIdx;
 
@@ -23,11 +23,11 @@ public class MusicManager : MonoBehaviour
     void Start()
     {
         Instance = this;
-        audio = GetComponent<AudioSource>();
-        audio.playOnAwake = false;
+        ac = GetComponent<AudioSource>();
+        ac.playOnAwake = false;
         progressCounter = Random.Range(0, 2);
-        audio.clip = getNextClip();
-        audio.Play();
+        ac.clip = getNextClip();
+        ac.Play();
     }
 
     private void OnEnable() {
@@ -39,9 +39,9 @@ public class MusicManager : MonoBehaviour
     }
 
     private void Update() {
-        if (!audio.isPlaying) {
-            audio.clip = getNextClip();
-            audio.Play();
+        if (!ac.isPlaying) {
+            ac.clip = getNextClip();
+            ac.Play();
         }
     }
 
@@ -56,17 +56,17 @@ public class MusicManager : MonoBehaviour
     private IEnumerator TransitionMusic() {
         float timer = 0f;
         float volumeDownTime = 1f;
-        float startVolume = audio.volume;
+        float startVolume = ac.volume;
         while (timer < volumeDownTime) {
             timer += Time.deltaTime;
-            audio.volume = (1 - timer / volumeDownTime) * startVolume;
+            ac.volume = (1 - timer / volumeDownTime) * startVolume;
             yield return null;
         }
-        audio.Stop();
-        audio.volume = startVolume;
+        ac.Stop();
+        ac.volume = startVolume;
         yield return new WaitForSeconds(0.5f);
-        audio.clip = getNextClip();
-        audio.Play();
+        ac.clip = getNextClip();
+        ac.Play();
     }
     
     private AudioClip[] getClipArrayByProgress(int progress) {
