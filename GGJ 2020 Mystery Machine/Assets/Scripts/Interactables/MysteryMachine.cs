@@ -40,6 +40,7 @@ public class MysteryMachine : MonoBehaviour, IInteractable
       addedItems.Add(i);
       // todo play put animation / activate machine?
       itemSlots[i].SetActive(true);
+      GameEvents.OnMMItemAdded();
     }
     if (requiredItems.Count == addedItems.Count) {
       MachineAssembled();

@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class Player : MonoBehaviour
 {
@@ -46,39 +47,11 @@ public class Player : MonoBehaviour
             heldItemContainer.transform.position = Camera.main.ScreenToWorldPoint(mPos);
         }
         if (_mayControl) {
-            bool leftClick = Input.GetMouseButtonUp(0);
-            bool rightClick = Input.GetMouseButtonUp(1);
-
-            if (leftClick || rightClick) {
-                RaycastHit2D rayHit = Physics2D.GetRayIntersection(Camera.main.ScreenPointToRay(Input.mousePosition), 50, LayerMask.GetMask("Interactable"));
-                if (rayHit.collider != null) {
-                    IInteractable interactable = rayHit.collider.GetComponent<IInteractable>();
-                    print(interactable);
-                    _targetInteractable = interactable;
-                    if (leftClick) _targetInteractionType = InteractionType.InteractWith;
-                    else if (rightClick) _targetInteractionType = InteractionType.LookAt;
-                    StartWalking(interactable.GetTransform().position.x);
-                } else {
-                    if (heldItem != Item.None && !justPickedUpItem) {
-                        PutBackItem();
-                    }
-                    rayHit = Physics2D.GetRayIntersection(Camera.main.ScreenPointToRay(Input.mousePosition), 50, LayerMask.GetMask("WalkableArea"));
-                    if (rayHit.collider != null) {
-                        StartWalking(rayHit.point.x);
-                    } 
-                }
-
-                if (leftClick && justPickedUpItem) {
-                    justPickedUpItem = false;
-                }
-            }
-
             // check if arrived at destination
-            if (isWalking ) {
+            if (isWalking) {
                 if (Math.Abs(transform.position.x - _targetPos.x) > stoppingDistance) {
                     transform.position = Vector3.MoveTowards(transform.position, _targetPos, Time.deltaTime * movementSpeed);
                 } else {
-                    print(_targetInteractable);
                     if (_targetInteractable != null) {
                         if (_targetInteractionType == InteractionType.LookAt) {
                             _targetInteractable.LookAt();
@@ -95,17 +68,36 @@ public class Player : MonoBehaviour
     }
 
     public void HoldItem(Item i, Sprite s) {
+        Cursor.visible = false;
         heldItem = i;
-        print(s);
         heldItemContainer.sprite = s;
-        justPickedUpItem = true;
+        //justPickedUpItem = true;
     }
 
     public void PutBackItem() {
         if (!justPickedUpItem) {
             heldItemContainer.sprite = null;
             heldItem = Item.None;
+            Cursor.visible = true;
         }
+    }
+
+    public void StartWalkingToInteractable(float xPos, IInteractable i, InteractionType ixType) {
+        _targetInteractionType = ixType;
+        _targetInteractable = i;
+        _targetPos = new Vector3(xPos, transform.position.y, transform.position.z);
+        _sr.flipX = _targetPos.x <= transform.position.x;
+        isWalking = true;
+    }
+
+    public void StartWalkingTo(BaseEventData bed) {
+        RaycastHit2D rayHit = Physics2D.GetRayIntersection(Camera.main.ScreenPointToRay(Input.mousePosition), 50);
+        if (rayHit.collider != null) {
+            _targetPos = new Vector3(rayHit.point.x, transform.position.y, transform.position.z);
+            _sr.flipX = _targetPos.x <= transform.position.x;
+            isWalking = true;
+        }
+        PutBackItem();
     }
 
     public void StartWalking(float xPos) {
