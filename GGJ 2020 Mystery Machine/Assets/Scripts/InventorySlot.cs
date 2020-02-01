@@ -13,11 +13,12 @@ public class InventorySlot : MonoBehaviour
     }
 
     public void HoldItem() {
+        print("InventorySlot.HoldItem");    
         Player.Instance.HoldItem(containedItem, image.sprite);
     }
 
 }
 
 public enum Item {
-    None, Flower, Shovel, Necklace, Hairpin, Candle, LitCandle, Matches, Food, MirrorShards, Stool, Hammer
+    None, Head, Flower, Shovel, Necklace, Hairpin, Candle, LitCandle, Matches, Food, MirrorShards, Stool, GolfClub
 }
