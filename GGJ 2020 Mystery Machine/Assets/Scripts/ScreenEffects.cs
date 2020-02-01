@@ -5,6 +5,7 @@ public class ScreenEffects : MonoBehaviour {
   
   public static ScreenEffects Instance;
   public CanvasGroup blackScreen;
+  public CanvasGroup textOnScreen;
 
   private void Start() {
     if (Instance != null) {
@@ -32,5 +33,31 @@ public class ScreenEffects : MonoBehaviour {
       yield return null;
     }
     blackScreen.alpha = 0;
+  }
+
+  public void TextOnScreen(float appearTime = 0.3f, float stayTime = 2f, float disappearTime = 0.3f) 
+  {
+    StartCoroutine(_TextOnScreen(appearTime, stayTime, disappearTime));
+  }
+
+  private IEnumerator _TextOnScreen(float appearTime = 0.3f, float stayTime = 2f, float disappearTime = 0.3f) 
+  {
+    float timer = 0f;
+    while (timer < appearTime) 
+    {
+      timer += Time.deltaTime;
+      textOnScreen.alpha = timer/appearTime;
+      yield return null;
+    }
+    textOnScreen.alpha = 1;
+    yield return new WaitForSeconds(stayTime);
+    timer = 0f;
+    while (timer < disappearTime) 
+    {
+      timer += Time.deltaTime;
+      textOnScreen.alpha = 1 - timer/appearTime;
+      yield return null;
+    }
+    textOnScreen.alpha = 0;
   }
 }
