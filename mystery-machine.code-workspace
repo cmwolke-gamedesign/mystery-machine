@@ -3,5 +3,8 @@
 		{
 			"path": "GGJ 2020 Mystery Machine"
 		}
-	]
+	],
+	"settings": {
+		"git.ignoreLimitWarning": true
+	}
 }
