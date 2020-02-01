@@ -3,7 +3,7 @@ using UnityEngine;
 public interface IInteractable {
   void LookAt();
   
-  void Interact(InventoryItem? i = null);
+  void Interact(Item i = Item.None);
 
   Transform GetTransform();
 }

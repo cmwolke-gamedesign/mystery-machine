@@ -3,10 +3,10 @@ using UnityEngine.UI;
 
 public class InventorySlot : MonoBehaviour
 {
-    public InventoryItem containedItem;
+    public Item containedItem;
     public Image image;
 
-    public void SetItem(InventoryItem i) {
+    public void SetItem(Item i) {
         Sprite s = Resources.Load<Sprite>("Icons/" + i.ToString());
         image.sprite = s;
         containedItem = i;
@@ -18,6 +18,6 @@ public class InventorySlot : MonoBehaviour
 
 }
 
-public enum InventoryItem {
-    Flower, Shovel, Necklace, Hairpin, Candle, LitCandle, Matches, Food, MirrorShards, Stool, Hammer
+public enum Item {
+    None, Flower, Shovel, Necklace, Hairpin, Candle, LitCandle, Matches, Food, MirrorShards, Stool, Hammer
 }

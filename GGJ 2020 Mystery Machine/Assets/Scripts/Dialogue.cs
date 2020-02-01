@@ -40,7 +40,7 @@ public class Dialogue : MonoBehaviour {
     {
       foreach(char c in nextSnippet) 
       {
-        yield return new WaitForSeconds(0.05f);
+        yield return new WaitForSeconds(0.025f);
         this.characterDialogue.text += c;
       }
       yield return new WaitForSeconds(dialogueDisplayTime);

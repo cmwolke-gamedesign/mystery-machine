@@ -1,7 +1,7 @@
 using UnityEngine;
 public class WorldPuzzle : MonoBehaviour
 {
-  public InventoryItem requiredItem;
+  public Item requiredItem;
 
   public string[] inspectDialogue = new string[] {"Looks like this needs something ..."};
   public string[] interactSuccessDialogue = new string[] {"Awesome!", "What now?"};
@@ -12,7 +12,7 @@ public class WorldPuzzle : MonoBehaviour
     // todo use dialog to give info about object
     Dialogue.Instance.SaySomething(inspectDialogue);
   }
-  public void InteractWithItem(InventoryItem i) {
+  public void InteractWithItem(Item i) {
     if (i == requiredItem) {
       Inventory.Instance.RemoveItem(i);
       // success, do thing

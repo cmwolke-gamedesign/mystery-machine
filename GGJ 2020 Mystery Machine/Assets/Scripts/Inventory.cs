@@ -16,16 +16,18 @@ public class Inventory : MonoBehaviour
         Instance = this;
     }
 
-    public void AddItem(InventoryItem i) {
+    public void AddItem(Item i) {
         InventorySlot newSlot = GameObject.Instantiate(slotPrefab).GetComponent<InventorySlot>();
         newSlot.SetItem(i);
         newSlot.transform.SetParent(transform);
+        slots.Add(newSlot);
     }
 
-    public bool RemoveItem(InventoryItem i) {
+    public bool RemoveItem(Item i) {
         InventorySlot slot = this.slots.Find(s => s.containedItem == i);
         if (slot != null) {
             GameObject.Destroy(slot.gameObject);
+            Player.Instance.PutBackItem();
             return true;
         } else {
             return false;

@@ -1,23 +1,27 @@
-using UnityEngine; 
+using UnityEngine;
+using UnityEngine.EventSystems;
 
 [RequireComponent(typeof(Collider2D))]
-public class Collectable : MonoBehaviour, IInteractable {
+public class Collectable : MonoBehaviour, IInteractable{
   
-  public InventoryItem item;
+  public Item item;
 
-  public InventoryItem? requiredItemToCollect;
+  public Item requiredItemToCollect = Item.None;
 
-  public string[] collectDialogue;
-  public string[] inspectDialogue;
-  public void Collect() {
+  public string[] collectDialogue = { "I will take this." };
+  public string[] inspectDialogue = { "Missing Inspect Dialogue!" };
+  public string[] collectFailDialogue = { "I guess I am missing something ..." };
+  public virtual void Collect() {
     Inventory.Instance.AddItem(item);
     Dialogue.Instance.SaySomething(collectDialogue);
   }
 
-  public void Interact(InventoryItem? i = null)
+  public void Interact(Item i = Item.None)
   {
     if (i == requiredItemToCollect) {
       this.Collect();
+    } else {
+      Dialogue.Instance.SaySomething(collectFailDialogue);
     }
   }
 
@@ -27,14 +31,10 @@ public class Collectable : MonoBehaviour, IInteractable {
   }
 
   private void InteractionSequence() {
-    /*  todo script what happens 
-      - pickup anim
-      - remove item from world
-      - say something?
-    */
   }
 
   public Transform GetTransform() {
     return transform;
   }
+
 }
