@@ -420,6 +420,30 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &6034639360139627809
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2476157657331950348}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a4cdf45e86de14056a9b17217b0a5de8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  item: 8
+  requiredItemToCollect: 0
+  collectSound: {fileID: 8300000, guid: d09260edf6c18481ead10e6b53e82f17, type: 3}
+  collectDialogue:
+  - A matchbox, that's useful.
+  - Ah, only one match left.
+  inspectDialogue:
+  - A matchbox to light the candles. Almost empty, though.
+  collectFailDialogue:
+  - I guess I am missing something ...
+  collectWrongItemDialogue:
+  - That's not going to work.
 --- !u!1 &4200789860717307502
 GameObject:
   m_ObjectHideFlags: 0
@@ -452,9 +476,150 @@ Transform:
   - {fileID: 2120776379757473908}
   - {fileID: 2120776379586184619}
   - {fileID: 2120776380210873640}
+  - {fileID: 2476157657331950352}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1789874089614200414
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 6180711778584292424}
+    m_Modifications:
+    - target: {fileID: 1530577363, guid: d929ffc6e91554d4e929f2caaa0c577a, type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 2476157657331950348}
+    - target: {fileID: 1530577363, guid: d929ffc6e91554d4e929f2caaa0c577a, type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 4218743950854532428, guid: d929ffc6e91554d4e929f2caaa0c577a,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4218743950854532430, guid: d929ffc6e91554d4e929f2caaa0c577a,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 8.926
+      objectReference: {fileID: 0}
+    - target: {fileID: 4218743950854532430, guid: d929ffc6e91554d4e929f2caaa0c577a,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -3.814
+      objectReference: {fileID: 0}
+    - target: {fileID: 4218743950854532430, guid: d929ffc6e91554d4e929f2caaa0c577a,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4218743950854532430, guid: d929ffc6e91554d4e929f2caaa0c577a,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4218743950854532430, guid: d929ffc6e91554d4e929f2caaa0c577a,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4218743950854532430, guid: d929ffc6e91554d4e929f2caaa0c577a,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4218743950854532430, guid: d929ffc6e91554d4e929f2caaa0c577a,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4218743950854532430, guid: d929ffc6e91554d4e929f2caaa0c577a,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4218743950854532430, guid: d929ffc6e91554d4e929f2caaa0c577a,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4218743950854532430, guid: d929ffc6e91554d4e929f2caaa0c577a,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4218743950854532430, guid: d929ffc6e91554d4e929f2caaa0c577a,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4218743950854532430, guid: d929ffc6e91554d4e929f2caaa0c577a,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.68935
+      objectReference: {fileID: 0}
+    - target: {fileID: 4218743950854532430, guid: d929ffc6e91554d4e929f2caaa0c577a,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.68935
+      objectReference: {fileID: 0}
+    - target: {fileID: 4218743950854532430, guid: d929ffc6e91554d4e929f2caaa0c577a,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.68935
+      objectReference: {fileID: 0}
+    - target: {fileID: 4218743950854532434, guid: d929ffc6e91554d4e929f2caaa0c577a,
+        type: 3}
+      propertyPath: m_Name
+      value: scn_hall_matches
+      objectReference: {fileID: 0}
+    - target: {fileID: 4218743950854532435, guid: d929ffc6e91554d4e929f2caaa0c577a,
+        type: 3}
+      propertyPath: collectDialogue.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4218743950854532435, guid: d929ffc6e91554d4e929f2caaa0c577a,
+        type: 3}
+      propertyPath: collectSound
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 4218743950854532435, guid: d929ffc6e91554d4e929f2caaa0c577a,
+        type: 3}
+      propertyPath: item
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 4218743950854532435, guid: d929ffc6e91554d4e929f2caaa0c577a,
+        type: 3}
+      propertyPath: collectDialogue.Array.data[0]
+      value: I will take this.
+      objectReference: {fileID: 0}
+    - target: {fileID: 4218743950854532435, guid: d929ffc6e91554d4e929f2caaa0c577a,
+        type: 3}
+      propertyPath: inspectDialogue.Array.data[0]
+      value: Missing Inspect Dialogue!
+      objectReference: {fileID: 0}
+    - target: {fileID: 4218743950854532435, guid: d929ffc6e91554d4e929f2caaa0c577a,
+        type: 3}
+      propertyPath: collectDialogue.Array.data[1]
+      value: Only one match left, though.
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 4218743950854532435, guid: d929ffc6e91554d4e929f2caaa0c577a, type: 3}
+  m_SourcePrefab: {fileID: 100100000, guid: d929ffc6e91554d4e929f2caaa0c577a, type: 3}
+--- !u!1 &2476157657331950348 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4218743950854532434, guid: d929ffc6e91554d4e929f2caaa0c577a,
+    type: 3}
+  m_PrefabInstance: {fileID: 1789874089614200414}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &2476157657331950352 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4218743950854532430, guid: d929ffc6e91554d4e929f2caaa0c577a,
+    type: 3}
+  m_PrefabInstance: {fileID: 1789874089614200414}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &8170572143133598165
 PrefabInstance:
   m_ObjectHideFlags: 0

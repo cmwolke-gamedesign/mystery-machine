@@ -6,7 +6,7 @@ public class Statue : Collectable {
     base.Collect();
     Inventory.Instance.RemoveItem(requiredItemToCollect);
     // todo player anim
-    transform.parent.Find("scn_hall_godrays").GetComponent<Animator>().SetTrigger("disable");
+    transform.Find("scn_hall_godrays").GetComponent<Animator>().SetTrigger("disable");
     // play anim for this?:
     transform.Find("scn_hall_statue_head").gameObject.SetActive(false);
   }

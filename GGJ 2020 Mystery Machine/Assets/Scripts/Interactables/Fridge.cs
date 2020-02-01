@@ -23,6 +23,7 @@ public class Fridge : Collectable {
     yield return new WaitForSeconds(1f);
     transform.parent.Find("scn_kitchen_fridge_open").gameObject.SetActive(false);
     Inventory.Instance.AddItem(item);
+    SoundsManager.Instance.PlaySound(collectSound);
     Player.Instance.SetPlayerControls(true);
     gameObject.SetActive(false);
   }
