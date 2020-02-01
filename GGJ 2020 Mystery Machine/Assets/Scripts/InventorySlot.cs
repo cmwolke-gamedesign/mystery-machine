@@ -7,9 +7,15 @@ public class InventorySlot : MonoBehaviour
     public Image image;
 
     public void SetItem(InventoryItem i) {
-        // image.sprite = 
+        Sprite s = Resources.Load<Sprite>("Icons/" + i.ToString());
+        image.sprite = s;
         containedItem = i;
     }
+
+    public void HoldItem() {
+        Player.Instance.HoldItem(containedItem, image.sprite);
+    }
+
 }
 
 public enum InventoryItem {

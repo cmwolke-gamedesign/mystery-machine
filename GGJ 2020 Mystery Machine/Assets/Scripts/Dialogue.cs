@@ -12,26 +12,39 @@ public class Dialogue : MonoBehaviour {
 
   private Queue<string[]> dialogueQueue;
 
-  private void Start() {
-    if (Instance != null) {
+  private void Start() 
+  {
+    if (Instance != null) 
+    {
       Destroy(Instance);
     }
     Instance = this;
     dialogueQueue = new Queue<string[]>();
+    characterDialogue.text = "";
   }
 
 
-  private void Update() {
-    if (!talking && dialogueQueue.Peek() != null) {
+  private void Update() 
+  {
+    if (!talking && dialogueQueue.Count > 0) 
+    {
       StartCoroutine(Say(dialogueQueue.Dequeue()));
     }
   }
 
-  private IEnumerator Say(string[] textSnippets) {
+  private IEnumerator Say(string[] textSnippets) 
+  {
     this.talking = true;
-    foreach(string nextSnippet in textSnippets) {
-      this.characterDialogue.text = nextSnippet;
+      this.characterDialogue.text = "";
+    foreach(string nextSnippet in textSnippets) 
+    {
+      foreach(char c in nextSnippet) 
+      {
+        yield return new WaitForSeconds(0.05f);
+        this.characterDialogue.text += c;
+      }
       yield return new WaitForSeconds(dialogueDisplayTime);
+      this.characterDialogue.text = "";
     }
     yield return new WaitForSeconds(0.5f);
     this.characterDialogue.text = "";
@@ -39,11 +52,13 @@ public class Dialogue : MonoBehaviour {
 
   }
 
-  public void SaySomething(string[] bla) {
+  public void SaySomething(string[] bla) 
+  {
      this.dialogueQueue.Enqueue(bla);
   }
 
-  public void SaySomethingNow(string[] bla) {
+  public void SaySomethingNow(string[] bla) 
+  {
     // override current text ? 
   }
 }
