@@ -35,7 +35,6 @@ public class Player : MonoBehaviour
         Instance = this;
         
         _sr = GetComponent<SpriteRenderer>();
-        PutBackItem();
     }
 
     // checks for click on walkable area and lets player move towards
