@@ -55,10 +55,11 @@ public class MusicManager : MonoBehaviour
 
     private IEnumerator TransitionMusic() {
         float timer = 0f;
-        float volumeDownTime = 0.5f;
+        float volumeDownTime = 1f;
         float startVolume = audio.volume;
         while (timer < volumeDownTime) {
-            audio.volume = 1 - timer / volumeDownTime;
+            timer += Time.deltaTime;
+            audio.volume = (1 - timer / volumeDownTime) * startVolume;
             yield return null;
         }
         audio.Stop();

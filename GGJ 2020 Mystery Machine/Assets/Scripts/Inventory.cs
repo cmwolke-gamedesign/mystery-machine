@@ -8,12 +8,27 @@ public class Inventory : MonoBehaviour
     public List<InventorySlot> slots;
     public GameObject slotPrefab;
 
+    [SerializeField]
+    private bool showingInventory;
+    private Animator _anim;
     private void Start()
     {
         if (Instance != null) {
             GameObject.Destroy(Instance.gameObject);
         }
         Instance = this;
+        _anim = GetComponent<Animator>();
+    }
+
+    private void Update() {
+        bool mouseInLowerScreen = Input.mousePosition.y < 80;
+        if (!showingInventory && mouseInLowerScreen) {
+            showingInventory = true;
+            _anim.SetBool("showInventory", true);
+        } else if (showingInventory && !mouseInLowerScreen) {
+            showingInventory = false;
+            _anim.SetBool("showInventory", false);
+        }
     }
 
     public void AddItem(Item i) {
