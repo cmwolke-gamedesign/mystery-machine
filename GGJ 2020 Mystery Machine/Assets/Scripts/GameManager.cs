@@ -12,13 +12,15 @@ public class GameManager : MonoBehaviour {
   public Texture2D interactableCursor;
   public Texture2D standardCursor;
 
+  public bool enableStartEvent = true;
+
   private void Start() {
     if (Instance != null) {
       GameObject.Destroy(Instance.gameObject);
     }
     Instance = this;
     _player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
-    StartCoroutine(EnterGame());
+    if (enableStartEvent) StartCoroutine(EnterGame());
   }
 
   private void Update() 
@@ -50,7 +52,10 @@ public class GameManager : MonoBehaviour {
   }
 
   public void SetCursorInteractable(bool interactable) {
-    Cursor.SetCursor(interactable ? interactableCursor : standardCursor, Vector2.zero, CursorMode.Auto);
+    print("cursor " + (interactable ? "enter" : "exit"));
+    if (standardCursor != null && interactableCursor != null) {
+      Cursor.SetCursor(interactable ? interactableCursor : standardCursor, Vector2.zero, CursorMode.Auto);
+    }
   }
 
 }

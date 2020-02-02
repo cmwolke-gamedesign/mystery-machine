@@ -96,6 +96,7 @@ public class Player : MonoBehaviour
 
     public void StartWalkingTo(BaseEventData bed) {
         if (!_mayControl) return; 
+        _targetInteractable = null;
         RaycastHit2D rayHit = Physics2D.GetRayIntersection(Camera.main.ScreenPointToRay(Input.mousePosition), 50);
         if (rayHit.collider != null) {
             _targetPos = new Vector3(rayHit.point.x, transform.position.y, transform.position.z);

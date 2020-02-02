@@ -1,12 +1,13 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class MysteryMachine : MonoBehaviour, IInteractable
 {
   [SerializeField]
   private List<Item> requiredItems = new List<Item> {Item.Head, Item.Flower, Item.Cake, Item.Necklace, Item.Shards};
   private List<Item> addedItems = new List<Item>();
-  public GameObject headSlot, flowerSlot, cakeslot, necklaceSlot, mirrorShardsSlot;
+  public GameObject headSlot, flowerSlot, cakeSlot, necklaceSlot, mirrorShardsSlot;
   private Dictionary<Item, GameObject> itemSlots;
   public List<string[]> lookAtDialogue;
   private int lookAtDialogueIdx = 0;
@@ -19,7 +20,7 @@ public class MysteryMachine : MonoBehaviour, IInteractable
     {
       {Item.Head, headSlot},
       {Item.Flower, flowerSlot},
-      {Item.Cake, cakeslot},
+      {Item.Cake, cakeSlot},
       {Item.Necklace, necklaceSlot},
       {Item.Shards, mirrorShardsSlot},
     };
@@ -53,5 +54,13 @@ public class MysteryMachine : MonoBehaviour, IInteractable
   private void MachineAssembled() 
   {
     // BOOM
+  }
+  
+  public void Click(BaseEventData d) {
+    PointerEventData ped = (PointerEventData)d;
+    bool leftClick = ped.pointerId == -1;
+    bool rightClick = ped.pointerId == -2;
+    if (leftClick) Player.Instance.StartWalkingToInteractable(transform.position.x, this, InteractionType.InteractWith);
+    else if (rightClick) Player.Instance.StartWalkingToInteractable(transform.position.x, this, InteractionType.LookAt);
   }
 }

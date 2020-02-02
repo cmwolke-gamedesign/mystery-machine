@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class CellarTransition : MonoBehaviour
 {
@@ -11,20 +12,30 @@ public class CellarTransition : MonoBehaviour
     
     public AudioClip FallIntoCellarAudio, ClimbUpAudio, ClimbDownAudio;
 
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        if (other.tag == "Player") {
-            if (direction == TransitionDirection.IntoCellar) {
-                if (!_fellIntoCellar) {
-                    StartCoroutine(FallDownIntoCellar());
-                    // firstTime, tumble down action
-                } else {
-                    StartCoroutine(GoToCellar());
-                    // walk up normally
-                }
+    private CameraFollower _cam;
+
+    private void Start() {
+
+        _cam = FindObjectOfType<CameraFollower>();
+    }
+
+    public void TriggerTransition() {
+        if (direction == TransitionDirection.IntoCellar) {
+            if (!_fellIntoCellar) {
+                StartCoroutine(FallDownIntoCellar());
+                // firstTime, tumble down action
             } else {
-                StartCoroutine(GoToGarden());
+                StartCoroutine(GoToCellar());
+                // walk up normally
             }
+        } else {
+            StartCoroutine(GoToGarden());
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D other) {
+        if (other.tag == "Player") {
+            this.TriggerTransition();
         }
     }
 
@@ -34,6 +45,7 @@ public class CellarTransition : MonoBehaviour
         SoundsManager.Instance.PlaySound(FallIntoCellarAudio);
         yield return new WaitForSeconds(0.5f);
         Player.Instance.transform.position = cellarEntryPosition.position;
+        _cam.SetBounds(true);
         yield return new WaitForSeconds(2f);
         string[] fallDialogue = new string[] {
             "Ouch!",
@@ -54,7 +66,8 @@ public class CellarTransition : MonoBehaviour
         SoundsManager.Instance.PlaySound(ClimbDownAudio);
         ScreenEffects.Instance.FadeOutEffect(0.2f, 0.5f, 0.3f);
         yield return new WaitForSeconds(0.5f);
-        Player.Instance.transform.position = cellarEntryPosition.position;
+        Player.Instance.transform.position = gardenEntryPosition.position;
+        _cam.SetBounds(true);
         yield return new WaitForSeconds(0.5f);
         Player.Instance.SetPlayerControls(true);
     }
@@ -65,8 +78,13 @@ public class CellarTransition : MonoBehaviour
         ScreenEffects.Instance.FadeOutEffect(0.2f, 0.5f, 0.3f);
         yield return new WaitForSeconds(0.5f);
         Player.Instance.transform.position = gardenEntryPosition.position;
+        _cam.SetBounds(false);
         yield return new WaitForSeconds(0.5f);
         Player.Instance.SetPlayerControls(true);
+    }
+
+    public void Click(BaseEventData bed) {
+        print(bed);
     }
 }
 
