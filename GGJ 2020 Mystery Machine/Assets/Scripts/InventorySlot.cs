@@ -20,5 +20,5 @@ public class InventorySlot : MonoBehaviour
 }
 
 public enum Item {
-    None, Head, Flower, Shovel, Necklace, Hairpin, Candle, LitCandle, Matches, Food, MirrorShards, Stool, GolfClub
+    None, Head, Flower, Shovel, Necklace, Hairpin, Candle, LitCandle, Matches, Cake, MirrorShards, Stool, GolfClub
 }
