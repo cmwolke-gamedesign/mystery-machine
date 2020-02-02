@@ -75,8 +75,10 @@ public class CameraFollower : MonoBehaviour
         } else {
             currentCameraBounds = cameraBoundsUpstairs;
         }
+            min = currentCameraBounds.bounds.min;
+            max = currentCameraBounds.bounds.max;
         transform.position = new Vector3(Player.Instance.transform.position.x, Camera.main.transform.position.y, Camera.main.transform.position.z);
-        Invoke("EnableFollow()", 0.5f);
+        Invoke("EnableFollow", 0.5f);
     }
 
     private void EnableFollow() {
