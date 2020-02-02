@@ -30,15 +30,7 @@ public class MusicManager : MonoBehaviour
         ac.clip = getNextClip();
         ac.Play();
     }
-
-    private void OnEnable() {
-        GameEvents.MMItemAdded += MMItemAdded;
-    }
-
-    private void OnDisable() {
-        GameEvents.MMItemAdded -= MMItemAdded;
-    }
-
+    
     private void Update() {
         if (!ac.isPlaying) {
             ac.clip = getNextClip();

@@ -13,6 +13,7 @@ public class Mirror : Collectable {
     // todo player anims?
     Player.Instance.SetPlayerControls(false);
     Dialogue.Instance.SaySomething(new string[] {"I can reach it with the stool."});
+    Player.Instance.Pickup();
     yield return new WaitForSeconds(1.5f);
     ScreenEffects.Instance.FadeOutEffect(0.5f, 2f, 0.5f);
     yield return new WaitForSeconds(1f);
@@ -26,6 +27,7 @@ public class Mirror : Collectable {
     });
     yield return new WaitForSeconds(1f);
     Inventory.Instance.AddItem(item);
+    Player.Instance.Pickup();
     SoundsManager.Instance.PlaySound(collectSound);
     Player.Instance.SetPlayerControls(true);
     gameObject.SetActive(false);

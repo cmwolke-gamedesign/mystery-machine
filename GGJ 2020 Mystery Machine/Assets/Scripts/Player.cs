@@ -116,6 +116,10 @@ public class Player : MonoBehaviour
         isWalking = false;
         _anim.SetBool("isWalking", isWalking);
     }
+
+    public void Pickup() {
+        _anim.SetTrigger("pickup");
+    }
 }
 
 public enum InteractionType {
