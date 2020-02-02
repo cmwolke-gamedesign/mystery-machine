@@ -21,7 +21,7 @@ public class Inventory : MonoBehaviour
     }
 
     private void Update() {
-        bool mouseInLowerScreen = Input.mousePosition.y < 40;
+        bool mouseInLowerScreen = Input.mousePosition.y < 60;
         if (!showingInventory && mouseInLowerScreen) {
             showingInventory = true;
             _anim.SetBool("showInventory", true);
