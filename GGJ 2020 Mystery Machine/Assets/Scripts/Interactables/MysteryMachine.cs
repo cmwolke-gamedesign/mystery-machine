@@ -4,9 +4,9 @@ using UnityEngine;
 public class MysteryMachine : MonoBehaviour, IInteractable
 {
   [SerializeField]
-  private List<Item> requiredItems = new List<Item> {Item.Head, Item.Flower, Item.Food, Item.Necklace, Item.MirrorShards};
+  private List<Item> requiredItems = new List<Item> {Item.Head, Item.Flower, Item.Cake, Item.Necklace, Item.MirrorShards};
   private List<Item> addedItems = new List<Item>();
-  public GameObject headSlot, flowerSlot, foodSlot, necklaceSlot, mirrorShardsSlot;
+  public GameObject headSlot, flowerSlot, cakeslot, necklaceSlot, mirrorShardsSlot;
   private Dictionary<Item, GameObject> itemSlots;
   public List<string[]> lookAtDialogue;
   private int lookAtDialogueIdx = 0;
@@ -19,7 +19,7 @@ public class MysteryMachine : MonoBehaviour, IInteractable
     {
       {Item.Head, headSlot},
       {Item.Flower, flowerSlot},
-      {Item.Food, foodSlot},
+      {Item.Cake, cakeslot},
       {Item.Necklace, necklaceSlot},
       {Item.MirrorShards, mirrorShardsSlot},
     };

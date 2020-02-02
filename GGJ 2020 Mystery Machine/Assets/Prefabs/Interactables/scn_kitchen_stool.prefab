@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 7985292752214953465}
   - component: {fileID: 3670045737941013182}
   m_Layer: 0
-  m_Name: scn_kitchen_stool 1
+  m_Name: scn_kitchen_stool
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -119,16 +119,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 963556743369173360}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2d319a83d80424cb79230a96a019e42d, type: 3}
+  m_Script: {fileID: 11500000, guid: 9e799a39a50e24c05a109e1102be8f80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  item: 11
+  item: 0
   requiredItemToCollect: 0
+  collectSound: {fileID: 0}
   collectDialogue:
-  - This might be useful.
+  - I will take this.
   inspectDialogue:
-  - A stool, looks well used.
-  - The old man used it to get to high things.
+  - Missing Inspect Dialogue!
   collectFailDialogue:
   - I guess I am missing something ...
   collectWrongItemDialogue:
