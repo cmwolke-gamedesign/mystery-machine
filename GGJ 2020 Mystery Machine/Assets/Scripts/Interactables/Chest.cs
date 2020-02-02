@@ -13,6 +13,7 @@ public class Chest : Collectable {
     // todo player anims?
     Player.Instance.SetPlayerControls(false);
     Dialogue.Instance.SaySomething(new string[] {"I'll open it with the hair pin."});
+    Player.Instance.Pickup();
     yield return new WaitForSeconds(1.5f);
     ScreenEffects.Instance.FadeOutEffect(0.5f, 2f, 0.5f);
     yield return new WaitForSeconds(1f);

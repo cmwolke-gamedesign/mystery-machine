@@ -92,6 +92,30 @@ Light:
   m_UseBoundingSphereOverride: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!114 &729748160
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 480264761812601295}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a4cdf45e86de14056a9b17217b0a5de8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  item: 11
+  requiredItemToCollect: 0
+  collectSound: {fileID: 8300000, guid: d09260edf6c18481ead10e6b53e82f17, type: 3}
+  collectDialogue:
+  - This might be useful.
+  inspectDialogue:
+  - A stool, looks well used.
+  - The old man used it to get to high things.
+  collectFailDialogue:
+  - I guess I am missing something ...
+  collectWrongItemDialogue:
+  - That's not going to work.
 --- !u!1 &2038305260446146993
 GameObject:
   m_ObjectHideFlags: 0
@@ -120,7 +144,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2038305260446146993}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 11.79, y: -4.55, z: 0}
+  m_LocalPosition: {x: 2.2, y: -4.77, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 6180711778584292424}
@@ -164,10 +188,10 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 35
+  m_SortingOrder: 100
   m_Sprite: {fileID: 21300000, guid: a2a59f2d8084ff14dbbac808155d4b27, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
+  m_FlipX: 1
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 1.18, y: 4.5}
@@ -214,7 +238,52 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Delegates: []
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 0}
+          m_MethodName: SetCursorInteractable
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 1
+          m_CallState: 2
+  - eventID: 1
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 0}
+          m_MethodName: SetCursorInteractable
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 3
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 5768675710995705449}
+          m_MethodName: Click
+          m_Mode: 0
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!114 &5768675710995705449
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -231,9 +300,9 @@ MonoBehaviour:
   requiredItemToCollect: 0
   collectSound: {fileID: 8300000, guid: c22ee73d3892c4232b77bc6753fda8c9, type: 3}
   collectDialogue:
-  - I will take this.
+  - Ah, the old man was quite the golf player.
   inspectDialogue:
-  - Missing Inspect Dialogue!
+  - That's a 7 iron. How do I even know that.
   collectFailDialogue:
   - I guess I am missing something ...
   collectWrongItemDialogue:
@@ -248,6 +317,8 @@ GameObject:
   m_Component:
   - component: {fileID: 8936286493695685262}
   - component: {fileID: 6573462544084888043}
+  - component: {fileID: 1624449183}
+  - component: {fileID: 1624449184}
   m_Layer: 0
   m_Name: scn_kitchen_shed_door
   m_TagString: Untagged
@@ -319,6 +390,112 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!60 &1624449183
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2053252961261274713}
+  m_Enabled: 0
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1.33, y: 7.65}
+    newSize: {x: 1.33, y: 7.65}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: 0.615, y: -1.385}
+      - {x: 0.625, y: -1.005}
+      - {x: 0.625, y: -0.095}
+      - {x: 0.655, y: 0.815}
+      - {x: 0.66499996, y: 1.375}
+      - {x: 0.66499996, y: 3.745}
+      - {x: 0.655, y: 3.7749999}
+      - {x: 0.585, y: 3.7749999}
+      - {x: 0.285, y: 3.705}
+      - {x: -0.33499998, y: 3.5649998}
+      - {x: -0.48499998, y: 3.5149999}
+      - {x: -0.525, y: 3.475}
+      - {x: -0.555, y: 3.165}
+      - {x: -0.565, y: 2.735}
+      - {x: -0.555, y: 2.2949998}
+      - {x: -0.545, y: 2.2849998}
+      - {x: -0.545, y: 1.235}
+      - {x: -0.555, y: 1.0749999}
+      - {x: -0.655, y: 0.965}
+      - {x: -0.66499996, y: 0.92499995}
+      - {x: -0.66499996, y: 0.72499996}
+      - {x: -0.585, y: 0.60499996}
+      - {x: -0.545, y: 0.49499997}
+      - {x: -0.59499997, y: -0.325}
+      - {x: -0.615, y: -0.98499995}
+      - {x: -0.615, y: -1.175}
+      - {x: -0.59499997, y: -1.765}
+      - {x: -0.585, y: -2.5149999}
+      - {x: -0.625, y: -2.5049999}
+      - {x: -0.60499996, y: -2.655}
+      - {x: -0.45499998, y: -2.705}
+      - {x: -0.24499999, y: -2.915}
+      - {x: 0.265, y: -3.5049999}
+      - {x: 0.545, y: -3.7849998}
+      - {x: 0.615, y: -3.8249998}
+      - {x: 0.66499996, y: -3.8249998}
+      - {x: 0.66499996, y: -3.155}
+      - {x: 0.615, y: -1.8549999}
+--- !u!114 &1624449184
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2053252961261274713}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 0}
+          m_MethodName: SetCursorInteractable
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 1
+          m_CallState: 2
+  - eventID: 1
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 0}
+          m_MethodName: SetCursorInteractable
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &2120776379654815110
 GameObject:
   m_ObjectHideFlags: 0
@@ -908,13 +1085,43 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Delegates:
-  - eventID: 4
+  - eventID: 3
     callback:
       m_PersistentCalls:
         m_Calls:
         - m_Target: {fileID: 2445572604945319541}
           m_MethodName: Click
           m_Mode: 0
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 0}
+          m_MethodName: SetCursorInteractable
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 1
+          m_CallState: 2
+  - eventID: 1
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 0}
+          m_MethodName: SetCursorInteractable
+          m_Mode: 6
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -937,7 +1144,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   item: 2
   requiredItemToCollect: 3
-  collectSound: {fileID: 0}
+  collectSound: {fileID: 8300000, guid: d09260edf6c18481ead10e6b53e82f17, type: 3}
   collectDialogue:
   - With the shovel I can preserve it.
   inspectDialogue:
@@ -974,6 +1181,91 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: scn_kitchen_stool
+      objectReference: {fileID: 0}
+    - target: {fileID: 3670045737941013182, guid: 46e99268b8fa04acb92db403b0c95a16,
+        type: 3}
+      propertyPath: m_Delegates.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3670045737941013182, guid: 46e99268b8fa04acb92db403b0c95a16,
+        type: 3}
+      propertyPath: m_Delegates.Array.data[1].callback.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3670045737941013182, guid: 46e99268b8fa04acb92db403b0c95a16,
+        type: 3}
+      propertyPath: m_Delegates.Array.data[2].callback.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3670045737941013182, guid: 46e99268b8fa04acb92db403b0c95a16,
+        type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 729748160}
+    - target: {fileID: 3670045737941013182, guid: 46e99268b8fa04acb92db403b0c95a16,
+        type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Click
+      objectReference: {fileID: 0}
+    - target: {fileID: 3670045737941013182, guid: 46e99268b8fa04acb92db403b0c95a16,
+        type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3670045737941013182, guid: 46e99268b8fa04acb92db403b0c95a16,
+        type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 3670045737941013182, guid: 46e99268b8fa04acb92db403b0c95a16,
+        type: 3}
+      propertyPath: m_Delegates.Array.data[1].callback.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SetCursorInteractable
+      objectReference: {fileID: 0}
+    - target: {fileID: 3670045737941013182, guid: 46e99268b8fa04acb92db403b0c95a16,
+        type: 3}
+      propertyPath: m_Delegates.Array.data[1].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 3670045737941013182, guid: 46e99268b8fa04acb92db403b0c95a16,
+        type: 3}
+      propertyPath: m_Delegates.Array.data[1].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 3670045737941013182, guid: 46e99268b8fa04acb92db403b0c95a16,
+        type: 3}
+      propertyPath: m_Delegates.Array.data[1].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_BoolArgument
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3670045737941013182, guid: 46e99268b8fa04acb92db403b0c95a16,
+        type: 3}
+      propertyPath: m_Delegates.Array.data[1].callback.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3670045737941013182, guid: 46e99268b8fa04acb92db403b0c95a16,
+        type: 3}
+      propertyPath: m_Delegates.Array.data[2].eventID
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3670045737941013182, guid: 46e99268b8fa04acb92db403b0c95a16,
+        type: 3}
+      propertyPath: m_Delegates.Array.data[2].callback.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SetCursorInteractable
+      objectReference: {fileID: 0}
+    - target: {fileID: 3670045737941013182, guid: 46e99268b8fa04acb92db403b0c95a16,
+        type: 3}
+      propertyPath: m_Delegates.Array.data[2].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 3670045737941013182, guid: 46e99268b8fa04acb92db403b0c95a16,
+        type: 3}
+      propertyPath: m_Delegates.Array.data[2].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 3670045737941013182, guid: 46e99268b8fa04acb92db403b0c95a16,
+        type: 3}
+      propertyPath: m_Delegates.Array.data[2].callback.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5779391221467479796, guid: 46e99268b8fa04acb92db403b0c95a16,
         type: 3}
@@ -1033,6 +1325,12 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: 7985292752214953465, guid: 46e99268b8fa04acb92db403b0c95a16, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 46e99268b8fa04acb92db403b0c95a16, type: 3}
+--- !u!1 &480264761812601295 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 963556743369173360, guid: 46e99268b8fa04acb92db403b0c95a16,
+    type: 3}
+  m_PrefabInstance: {fileID: 861598757849522367}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &6611713283053166155 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5779391221467479796, guid: 46e99268b8fa04acb92db403b0c95a16,
@@ -1046,6 +1344,101 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6180711778584292424}
     m_Modifications:
+    - target: {fileID: 6831620392811225003, guid: 82ac4de0b14274779b0a132ef500c56e,
+        type: 3}
+      propertyPath: m_Delegates.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6831620392811225003, guid: 82ac4de0b14274779b0a132ef500c56e,
+        type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6831620392811225003, guid: 82ac4de0b14274779b0a132ef500c56e,
+        type: 3}
+      propertyPath: m_Delegates.Array.data[1].callback.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6831620392811225003, guid: 82ac4de0b14274779b0a132ef500c56e,
+        type: 3}
+      propertyPath: m_Delegates.Array.data[2].callback.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6831620392811225003, guid: 82ac4de0b14274779b0a132ef500c56e,
+        type: 3}
+      propertyPath: m_Delegates.Array.data[0].eventID
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6831620392811225003, guid: 82ac4de0b14274779b0a132ef500c56e,
+        type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1999993063735059219}
+    - target: {fileID: 6831620392811225003, guid: 82ac4de0b14274779b0a132ef500c56e,
+        type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Click
+      objectReference: {fileID: 0}
+    - target: {fileID: 6831620392811225003, guid: 82ac4de0b14274779b0a132ef500c56e,
+        type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 6831620392811225003, guid: 82ac4de0b14274779b0a132ef500c56e,
+        type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6831620392811225003, guid: 82ac4de0b14274779b0a132ef500c56e,
+        type: 3}
+      propertyPath: m_Delegates.Array.data[1].callback.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SetCursorInteractable
+      objectReference: {fileID: 0}
+    - target: {fileID: 6831620392811225003, guid: 82ac4de0b14274779b0a132ef500c56e,
+        type: 3}
+      propertyPath: m_Delegates.Array.data[1].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6831620392811225003, guid: 82ac4de0b14274779b0a132ef500c56e,
+        type: 3}
+      propertyPath: m_Delegates.Array.data[1].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 6831620392811225003, guid: 82ac4de0b14274779b0a132ef500c56e,
+        type: 3}
+      propertyPath: m_Delegates.Array.data[1].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_BoolArgument
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6831620392811225003, guid: 82ac4de0b14274779b0a132ef500c56e,
+        type: 3}
+      propertyPath: m_Delegates.Array.data[1].callback.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6831620392811225003, guid: 82ac4de0b14274779b0a132ef500c56e,
+        type: 3}
+      propertyPath: m_Delegates.Array.data[2].eventID
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6831620392811225003, guid: 82ac4de0b14274779b0a132ef500c56e,
+        type: 3}
+      propertyPath: m_Delegates.Array.data[2].callback.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SetCursorInteractable
+      objectReference: {fileID: 0}
+    - target: {fileID: 6831620392811225003, guid: 82ac4de0b14274779b0a132ef500c56e,
+        type: 3}
+      propertyPath: m_Delegates.Array.data[2].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6831620392811225003, guid: 82ac4de0b14274779b0a132ef500c56e,
+        type: 3}
+      propertyPath: m_Delegates.Array.data[2].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 6831620392811225003, guid: 82ac4de0b14274779b0a132ef500c56e,
+        type: 3}
+      propertyPath: m_Delegates.Array.data[2].callback.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 7168788510119057997, guid: 82ac4de0b14274779b0a132ef500c56e,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1141,8 +1534,25 @@ PrefabInstance:
       propertyPath: collectWrongItemDialogue.Array.data[0]
       value: That's not helpful.
       objectReference: {fileID: 0}
+    - target: {fileID: 7337281689793654450, guid: 82ac4de0b14274779b0a132ef500c56e,
+        type: 3}
+      propertyPath: collectSound
+      value: 
+      objectReference: {fileID: 8300000, guid: d2d86fb8af011434095d4215493d1f58, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 82ac4de0b14274779b0a132ef500c56e, type: 3}
+--- !u!114 &1999993063735059219 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7337281689793654450, guid: 82ac4de0b14274779b0a132ef500c56e,
+    type: 3}
+  m_PrefabInstance: {fileID: 9084364951430925729}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 74f18fd530ca243bf8c1b726842afe85, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &2120776380965771244 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7168788510119057997, guid: 82ac4de0b14274779b0a132ef500c56e,

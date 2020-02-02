@@ -42,7 +42,7 @@ public class MysteryMachine : MonoBehaviour, IInteractable
         addedItems.Add(i);
         // todo play put animation / activate machine?
         itemSlots[i].SetActive(true);
-        GameEvents.OnMMItemAdded();
+        MusicManager.Instance.MMItemAdded();
       } else {
         Dialogue.Instance.SaySomething(new string[] {
           "It doesn't fit. Must be something else."

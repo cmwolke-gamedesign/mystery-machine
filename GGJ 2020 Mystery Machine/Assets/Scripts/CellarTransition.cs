@@ -68,7 +68,7 @@ public class CellarTransition : MonoBehaviour
         SoundsManager.Instance.PlaySound(ClimbDownAudio);
         ScreenEffects.Instance.FadeOutEffect(0.2f, 0.5f, 0.3f);
         yield return new WaitForSeconds(0.5f);
-        Player.Instance.transform.position = gardenEntryPosition.position;
+        Player.Instance.transform.position = cellarEntryPosition.position;
         _cam.SetBounds(true);
         yield return new WaitForSeconds(0.5f);
         Player.Instance.SetPlayerControls(true);
@@ -83,10 +83,6 @@ public class CellarTransition : MonoBehaviour
         _cam.SetBounds(false);
         yield return new WaitForSeconds(0.5f);
         Player.Instance.SetPlayerControls(true);
-    }
-
-    public void Click(BaseEventData bed) {
-        print(bed);
     }
 }
 
