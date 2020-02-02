@@ -31,12 +31,23 @@ public class MysteryMachine : MonoBehaviour, IInteractable
   }
   public void Interact(Item i = Item.None)
   {
-    if (requiredItems.Contains(i)) {
-      Inventory.Instance.RemoveItem(i);
-      addedItems.Add(i);
-      // todo play put animation / activate machine?
-      itemSlots[i].SetActive(true);
-      GameEvents.OnMMItemAdded();
+    if (i == Item.None) {
+      Dialogue.Instance.SaySomething(new string[] {
+        "It looks like it is missing parts.",
+        "Maybe I can find them around the house?",
+      });
+    } else {
+      if (requiredItems.Contains(i)) {
+        Inventory.Instance.RemoveItem(i);
+        addedItems.Add(i);
+        // todo play put animation / activate machine?
+        itemSlots[i].SetActive(true);
+        GameEvents.OnMMItemAdded();
+      } else {
+        Dialogue.Instance.SaySomething(new string[] {
+          "It doesn't fit. Must be something else."
+        });
+      }
     }
     if (requiredItems.Count == addedItems.Count) {
       MachineAssembled();
