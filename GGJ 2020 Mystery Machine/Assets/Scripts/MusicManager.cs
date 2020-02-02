@@ -22,6 +22,7 @@ public class MusicManager : MonoBehaviour
     /// </summary>
     void Start()
     {
+        DontDestroyOnLoad(gameObject);
         Instance = this;
         ac = GetComponent<AudioSource>();
         ac.playOnAwake = false;

@@ -18,6 +18,14 @@ public class GameManager : MonoBehaviour {
     StartCoroutine(EnterGame());
   }
 
+  private void Update() 
+  {
+    if (Input.GetKeyUp(KeyCode.Escape))
+    {
+      Application.Quit();
+    }
+  }
+
   private IEnumerator EnterGame() {
     yield return new WaitForFixedUpdate();
     ScreenEffects.Instance.FadeOutEffect(0f, 2f, 1f);
