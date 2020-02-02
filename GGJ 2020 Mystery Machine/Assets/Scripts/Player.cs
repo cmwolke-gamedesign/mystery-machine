@@ -23,19 +23,20 @@ public class Player : MonoBehaviour
     private Vector3 _targetPos;
     private IInteractable _targetInteractable;
     private InteractionType _targetInteractionType = InteractionType.Null;
-    private SpriteRenderer _sr;
+    public SpriteRenderer playerSpriteRender;
     private bool justPickedUpItem = false;
 
     private bool _mayControl = true;
-
+    
+    private Animator _anim;
     void Start()
     {
         if (Instance != null) {
             GameObject.Destroy(Instance.gameObject);
         }
         Instance = this;
-        
-        _sr = GetComponent<SpriteRenderer>();
+        _anim = GetComponentInChildren<Animator>();
+        playerSpriteRender = GetComponentInChildren<SpriteRenderer>();
     }
 
     // checks for click on walkable area and lets player move towards
@@ -62,6 +63,7 @@ public class Player : MonoBehaviour
                         _targetInteractable = null;
                     }
                     this.isWalking = false;
+                    _anim.SetBool("isWalking", isWalking);
                 }
             }
         }
@@ -83,29 +85,27 @@ public class Player : MonoBehaviour
     }
 
     public void StartWalkingToInteractable(float xPos, IInteractable i, InteractionType ixType) {
+        if (!_mayControl) return; 
         _targetInteractionType = ixType;
         _targetInteractable = i;
         _targetPos = new Vector3(xPos, transform.position.y, transform.position.z);
-        _sr.flipX = _targetPos.x <= transform.position.x;
+        playerSpriteRender.flipX = _targetPos.x <= transform.position.x;
         isWalking = true;
+        _anim.SetBool("isWalking", isWalking);
     }
 
     public void StartWalkingTo(BaseEventData bed) {
+        if (!_mayControl) return; 
         RaycastHit2D rayHit = Physics2D.GetRayIntersection(Camera.main.ScreenPointToRay(Input.mousePosition), 50);
         if (rayHit.collider != null) {
             _targetPos = new Vector3(rayHit.point.x, transform.position.y, transform.position.z);
-            _sr.flipX = _targetPos.x <= transform.position.x;
+            playerSpriteRender.flipX = _targetPos.x <= transform.position.x;
             isWalking = true;
+            _anim.SetBool("isWalking", isWalking);
         }
         PutBackItem();
     }
-
-    public void StartWalking(float xPos) {
-        _targetPos = new Vector3(xPos, transform.position.y, transform.position.z);
-        _sr.flipX = _targetPos.x <= transform.position.x;
-        isWalking = true;
-    } 
-
+    
     public void TogglePlayerControls() {
         _mayControl = !_mayControl;
     }

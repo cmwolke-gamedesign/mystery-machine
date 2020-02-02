@@ -47,9 +47,17 @@ public class Dialogue : MonoBehaviour {
       yield return new WaitForSeconds(dialogueDisplayTime);
       this.characterDialogue.text = "";
     }
-    yield return new WaitForSeconds(0.5f);
+    yield return new WaitForSeconds(dialogueDisplayTime);
     this.characterDialogue.text = "";
     Player.Instance.SetPlayerControls(true);
+  }
+
+  public float GetDurationOfSnippets(string[] textSnippets) {
+    float t = textSnippets.Length * dialogueDisplayTime;
+    foreach(string s in textSnippets) {
+      t += dialogueAppearTime * s.Length;
+    }
+    return t;
   }
 
   public void SaySomething(string[] bla) 
