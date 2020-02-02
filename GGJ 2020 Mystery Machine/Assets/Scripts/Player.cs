@@ -70,7 +70,7 @@ public class Player : MonoBehaviour
     }
 
     public void HoldItem(Item i, Sprite s) {
-        Cursor.visible = false;
+        // Cursor.visible = false;
         heldItem = i;
         heldItemContainer.sprite = s;
         //justPickedUpItem = true;
@@ -80,7 +80,7 @@ public class Player : MonoBehaviour
         if (!justPickedUpItem) {
             heldItemContainer.sprite = null;
             heldItem = Item.None;
-            Cursor.visible = true;
+            // Cursor.visible = true;
         }
     }
 
