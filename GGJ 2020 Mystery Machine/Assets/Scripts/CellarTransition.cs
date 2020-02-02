@@ -7,6 +7,7 @@ public class CellarTransition : MonoBehaviour
 {
     public Transform cellarEntryPosition;
     public Transform gardenEntryPosition;
+    public GameObject cellarDoor;
     private bool _fellIntoCellar = false;
     public TransitionDirection direction = TransitionDirection.OutOfCellar;
     
@@ -54,6 +55,7 @@ public class CellarTransition : MonoBehaviour
             "And that ... thing?",
             "There appears to be a note attached to it.",
         };
+        cellarDoor.SetActive(false);
         Dialogue.Instance.SaySomething(fallDialogue);
         yield return new WaitForSeconds(Dialogue.Instance.GetDurationOfSnippets(fallDialogue) + 0.5f);
         Player.Instance.SetPlayerControls(true);

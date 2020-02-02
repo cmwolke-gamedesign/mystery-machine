@@ -19,6 +19,7 @@ public class GameManager : MonoBehaviour {
       GameObject.Destroy(Instance.gameObject);
     }
     Instance = this;
+    Cursor.SetCursor(standardCursor, Vector2.zero, CursorMode.Auto);
     _player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
     if (enableStartEvent) StartCoroutine(EnterGame());
   }
