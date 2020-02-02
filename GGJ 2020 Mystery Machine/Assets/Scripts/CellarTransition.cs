@@ -36,7 +36,8 @@ public class CellarTransition : MonoBehaviour
         Player.Instance.transform.position = cellarEntryPosition.position;
         yield return new WaitForSeconds(2f);
         string[] fallDialogue = new string[] {
-            "Ouch. Since when is there a hole in the floor?",
+            "Ouch!",
+            "Since when is there a hole in the floor?",
             "What is this room?",
             "And that ... thing?",
             "There appears to be a note attached to it.",

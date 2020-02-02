@@ -112,6 +112,8 @@ public class Player : MonoBehaviour
 
     public void SetPlayerControls(bool val) {
         _mayControl = val;
+        isWalking = false;
+        _anim.SetBool("isWalking", isWalking);
     }
 }
 

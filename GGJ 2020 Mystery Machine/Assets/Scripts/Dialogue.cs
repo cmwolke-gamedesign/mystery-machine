@@ -47,7 +47,7 @@ public class Dialogue : MonoBehaviour {
       yield return new WaitForSeconds(dialogueDisplayTime);
       this.characterDialogue.text = "";
     }
-    yield return new WaitForSeconds(dialogueDisplayTime);
+    yield return new WaitForSeconds(0.2f);
     this.characterDialogue.text = "";
     Player.Instance.SetPlayerControls(true);
   }
