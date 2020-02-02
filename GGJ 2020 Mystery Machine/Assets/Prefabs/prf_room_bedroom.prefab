@@ -102,8 +102,9 @@ GameObject:
   m_Component:
   - component: {fileID: 8936286493695685262}
   - component: {fileID: 6573462544084888043}
-  - component: {fileID: 2069860446522684805}
   - component: {fileID: 7748069705307631609}
+  - component: {fileID: 2758362688309384062}
+  - component: {fileID: 4185279292273844684}
   m_Layer: 0
   m_Name: scn_bedroom_chest
   m_TagString: Untagged
@@ -175,19 +176,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!65 &2069860446522684805
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2053252961261274713}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1.14, y: 0.91, z: 0.2}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &7748069705307631609
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -204,15 +192,96 @@ MonoBehaviour:
   - eventID: 3
     callback:
       m_PersistentCalls:
-        m_Calls: []
+        m_Calls:
+        - m_Target: {fileID: 4185279292273844684}
+          m_MethodName: Click
+          m_Mode: 0
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
   - eventID: 0
     callback:
       m_PersistentCalls:
-        m_Calls: []
+        m_Calls:
+        - m_Target: {fileID: 0}
+          m_MethodName: SetCursorInteractable
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 1
+          m_CallState: 2
   - eventID: 1
     callback:
       m_PersistentCalls:
-        m_Calls: []
+        m_Calls:
+        - m_Target: {fileID: 0}
+          m_MethodName: SetCursorInteractable
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+--- !u!61 &2758362688309384062
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2053252961261274713}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.89, y: 0.7}
+    newSize: {x: 1.33, y: 7.65}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.89, y: 0.7}
+  m_EdgeRadius: 0
+--- !u!114 &4185279292273844684
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2053252961261274713}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ac5e804e9ee84b709137038811ae72b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  item: 4
+  requiredItemToCollect: 5
+  collectSound: {fileID: 8300000, guid: d09260edf6c18481ead10e6b53e82f17, type: 3}
+  collectDialogue: []
+  inspectDialogue:
+  - That's a nice little box. I wonder what's inside.
+  collectFailDialogue:
+  - It's locked.
+  collectWrongItemDialogue:
+  - That won't help me open it.
 --- !u!1 &2120776379654815110
 GameObject:
   m_ObjectHideFlags: 0
@@ -645,8 +714,9 @@ GameObject:
   m_Component:
   - component: {fileID: 2366183880773468347}
   - component: {fileID: 5755356000938935226}
-  - component: {fileID: 7637834038373303237}
   - component: {fileID: 3315896174781232657}
+  - component: {fileID: 854308274}
+  - component: {fileID: 854308273}
   m_Layer: 0
   m_Name: scn_bedroom_hairpin
   m_TagString: Untagged
@@ -718,19 +788,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!65 &7637834038373303237
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5907890599187842103}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.98, y: 0.7, z: 0.2}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &3315896174781232657
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -747,15 +804,97 @@ MonoBehaviour:
   - eventID: 3
     callback:
       m_PersistentCalls:
-        m_Calls: []
+        m_Calls:
+        - m_Target: {fileID: 854308273}
+          m_MethodName: Click
+          m_Mode: 0
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
   - eventID: 0
     callback:
       m_PersistentCalls:
-        m_Calls: []
+        m_Calls:
+        - m_Target: {fileID: 0}
+          m_MethodName: SetCursorInteractable
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 1
+          m_CallState: 2
   - eventID: 1
     callback:
       m_PersistentCalls:
-        m_Calls: []
+        m_Calls:
+        - m_Target: {fileID: 0}
+          m_MethodName: SetCursorInteractable
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+--- !u!61 &854308274
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5907890599187842103}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.98, y: 0.7}
+    newSize: {x: 1.33, y: 7.65}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.98, y: 0.7}
+  m_EdgeRadius: 0
+--- !u!114 &854308273
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5907890599187842103}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a4cdf45e86de14056a9b17217b0a5de8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  item: 5
+  requiredItemToCollect: 0
+  collectSound: {fileID: 8300000, guid: d09260edf6c18481ead10e6b53e82f17, type: 3}
+  collectDialogue:
+  - A hairpin ... the old man had short hair though.
+  - I'll take it, it could be useful.
+  inspectDialogue:
+  - A pretty hair pin. But the old man didn't use it?
+  collectFailDialogue: []
+  collectWrongItemDialogue:
+  - That's not going to work.
 --- !u!1 &7460096458390872647
 GameObject:
   m_ObjectHideFlags: 0
@@ -768,8 +907,9 @@ GameObject:
   - component: {fileID: 8788660308907493663}
   - component: {fileID: 7891439550323938349}
   - component: {fileID: 8884275403468955024}
+  - component: {fileID: 854308271}
   m_Layer: 0
-  m_Name: scn_mirror_whole
+  m_Name: scn_bedroom_mirror_whole
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -856,15 +996,48 @@ MonoBehaviour:
   - eventID: 3
     callback:
       m_PersistentCalls:
-        m_Calls: []
+        m_Calls:
+        - m_Target: {fileID: 7460096458390872647}
+          m_MethodName: 
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: 
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
   - eventID: 0
     callback:
       m_PersistentCalls:
-        m_Calls: []
+        m_Calls:
+        - m_Target: {fileID: 0}
+          m_MethodName: SetCursorInteractable
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 1
+          m_CallState: 2
   - eventID: 1
     callback:
       m_PersistentCalls:
-        m_Calls: []
+        m_Calls:
+        - m_Target: {fileID: 0}
+          m_MethodName: SetCursorInteractable
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!70 &8884275403468955024
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -881,6 +1054,29 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: -0.05}
   m_Size: {x: 2.27, y: 4.44}
   m_Direction: 0
+--- !u!114 &854308271
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7460096458390872647}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae0de666877764d23b9ee895f861abc0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  item: 10
+  requiredItemToCollect: 11
+  collectSound: {fileID: 8300000, guid: afbae06bba76a40b6a1c6f1ba0286011, type: 3}
+  collectDialogue:
+  - I will take this.
+  inspectDialogue:
+  - A pretty mirror. Pretty high up.
+  collectFailDialogue:
+  - I can't take it down, I'm too small.
+  collectWrongItemDialogue:
+  - This won't help me reach it.
 --- !u!1 &9051201922615226645
 GameObject:
   m_ObjectHideFlags: 0
@@ -943,15 +1139,48 @@ MonoBehaviour:
   - eventID: 3
     callback:
       m_PersistentCalls:
-        m_Calls: []
+        m_Calls:
+        - m_Target: {fileID: 8774967680343277734}
+          m_MethodName: Click
+          m_Mode: 0
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
   - eventID: 0
     callback:
       m_PersistentCalls:
-        m_Calls: []
+        m_Calls:
+        - m_Target: {fileID: 0}
+          m_MethodName: SetCursorInteractable
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 1
+          m_CallState: 2
   - eventID: 1
     callback:
       m_PersistentCalls:
-        m_Calls: []
+        m_Calls:
+        - m_Target: {fileID: 0}
+          m_MethodName: SetCursorInteractable
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!114 &8774967680343277734
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -965,7 +1194,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inspectDialogue:
-  - Lipatick? Strange... I've never seen a woman around the house.
+  - Lipstick? Strange... I've never seen a woman around the house.
 --- !u!1 &9091239950502316074
 GameObject:
   m_ObjectHideFlags: 0
@@ -1015,15 +1244,48 @@ MonoBehaviour:
   - eventID: 3
     callback:
       m_PersistentCalls:
-        m_Calls: []
+        m_Calls:
+        - m_Target: {fileID: 0}
+          m_MethodName: 
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: 
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
   - eventID: 0
     callback:
       m_PersistentCalls:
-        m_Calls: []
+        m_Calls:
+        - m_Target: {fileID: 0}
+          m_MethodName: SetCursorInteractable
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 1
+          m_CallState: 2
   - eventID: 1
     callback:
       m_PersistentCalls:
-        m_Calls: []
+        m_Calls:
+        - m_Target: {fileID: 0}
+          m_MethodName: SetCursorInteractable
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!114 &671665186814791092
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1064,13 +1326,14 @@ GameObject:
   - component: {fileID: 1510400286335615762}
   - component: {fileID: 1712346637118950353}
   - component: {fileID: 663705982733517172}
+  - component: {fileID: 854308272}
   m_Layer: 10
   m_Name: scn_bedroom_mirror_broken
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4206166720238222605
 Transform:
   m_ObjectHideFlags: 0
@@ -1177,12 +1440,59 @@ MonoBehaviour:
   - eventID: 3
     callback:
       m_PersistentCalls:
-        m_Calls: []
+        m_Calls:
+        - m_Target: {fileID: 854308272}
+          m_MethodName: Click
+          m_Mode: 0
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
   - eventID: 0
     callback:
       m_PersistentCalls:
-        m_Calls: []
+        m_Calls:
+        - m_Target: {fileID: 0}
+          m_MethodName: SetCursorInteractable
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 1
+          m_CallState: 2
   - eventID: 1
     callback:
       m_PersistentCalls:
-        m_Calls: []
+        m_Calls:
+        - m_Target: {fileID: 0}
+          m_MethodName: SetCursorInteractable
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+--- !u!114 &854308272
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9139057277479790413}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1fedde4bf77374cf5bf3fda2712af6bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inspectDialogue:
+  - I am so clumsy ...
