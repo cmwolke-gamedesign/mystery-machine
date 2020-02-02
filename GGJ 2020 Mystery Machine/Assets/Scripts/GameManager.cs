@@ -9,6 +9,9 @@ public class GameManager : MonoBehaviour {
 
   private Player _player;
 
+  public Texture2D interactableCursor;
+  public Texture2D standardCursor;
+
   private void Start() {
     if (Instance != null) {
       GameObject.Destroy(Instance.gameObject);
@@ -44,6 +47,10 @@ public class GameManager : MonoBehaviour {
     Dialogue.Instance.SaySomething(entryDialogue);
     yield return new WaitForSeconds(Dialogue.Instance.GetDurationOfSnippets(entryDialogue));
     _player.SetPlayerControls(true);
+  }
+
+  public void SetCursorInteractable(bool interactable) {
+    Cursor.SetCursor(interactable ? interactableCursor : standardCursor, Vector2.zero, CursorMode.Auto);
   }
 
 }

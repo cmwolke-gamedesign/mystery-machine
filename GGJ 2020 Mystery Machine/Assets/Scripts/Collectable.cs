@@ -42,10 +42,6 @@ public class Collectable : MonoBehaviour, IInteractable{
     Dialogue.Instance.SaySomething(inspectDialogue);
   }
   
-  public Transform GetTransform() {
-    return transform;
-  }
-
   public void Click(BaseEventData d) {
     PointerEventData ped = (PointerEventData)d;
     bool leftClick = ped.pointerId == -1;

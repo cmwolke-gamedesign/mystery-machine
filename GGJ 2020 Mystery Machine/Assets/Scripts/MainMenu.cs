@@ -9,9 +9,11 @@ public class MainMenu : MonoBehaviour
     public GameObject buttonsContainer;
     public CanvasGroup creditsContainer;
     public Button creditsBackButton;
+    public Texture2D cursor;
 
     private void Start() 
     {
+        Cursor.SetCursor(cursor, Vector2.zero, CursorMode.Auto);
         StartCoroutine(LerpCanvasGroup(creditsContainer, 0, 1, 0));
         creditsBackButton.interactable = false;
         {

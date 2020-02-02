@@ -4,7 +4,7 @@ using UnityEngine;
 public class MysteryMachine : MonoBehaviour, IInteractable
 {
   [SerializeField]
-  private List<Item> requiredItems = new List<Item> {Item.Head, Item.Flower, Item.Cake, Item.Necklace, Item.MirrorShards};
+  private List<Item> requiredItems = new List<Item> {Item.Head, Item.Flower, Item.Cake, Item.Necklace, Item.Shards};
   private List<Item> addedItems = new List<Item>();
   public GameObject headSlot, flowerSlot, cakeslot, necklaceSlot, mirrorShardsSlot;
   private Dictionary<Item, GameObject> itemSlots;
@@ -21,18 +21,13 @@ public class MysteryMachine : MonoBehaviour, IInteractable
       {Item.Flower, flowerSlot},
       {Item.Cake, cakeslot},
       {Item.Necklace, necklaceSlot},
-      {Item.MirrorShards, mirrorShardsSlot},
+      {Item.Shards, mirrorShardsSlot},
     };
     foreach(GameObject go in itemSlots.Values) {
       go.SetActive(false);
     }
     _anim = GetComponent<Animator>();
   }
-  public Transform GetTransform()
-  {
-     return transform;
-  }
-
   public void Interact(Item i = Item.None)
   {
     if (requiredItems.Contains(i)) {
