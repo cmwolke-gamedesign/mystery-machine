@@ -87,7 +87,7 @@ GameObject:
   - component: {fileID: 7743217801022354081}
   - component: {fileID: 5522744006784215058}
   m_Layer: 5
-  m_Name: ItemSlot
+  m_Name: prf_itemslot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -102,7 +102,7 @@ RectTransform:
   m_GameObject: {fileID: 5369708181906367214}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_Children:
   - {fileID: 8568417021666982820}
   m_Father: {fileID: 0}
