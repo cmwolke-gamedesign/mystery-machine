@@ -53,7 +53,7 @@ public class CellarTransition : MonoBehaviour
             "Since when is there a hole in the floor?",
             "What is this room?",
             "And that ... thing?",
-            "There appears to be a note attached to it.",
+            "There are notes on the wall, maybe they can explain.",
         };
         cellarDoor.SetActive(false);
         Dialogue.Instance.SaySomething(fallDialogue);
