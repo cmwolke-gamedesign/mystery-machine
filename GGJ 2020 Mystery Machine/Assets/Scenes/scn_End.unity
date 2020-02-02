@@ -380,7 +380,7 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4309493
+    rgba: 4282499573
   m_fontColor: {r: 0.9607844, g: 0.7568628, b: 0.25490198, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
@@ -575,6 +575,7 @@ GameObject:
   - component: {fileID: 512419252}
   - component: {fileID: 512419251}
   - component: {fileID: 512419250}
+  - component: {fileID: 512419254}
   m_Layer: 0
   m_Name: girlbrush_end_001
   m_TagString: Untagged
@@ -684,6 +685,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &512419254
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 512419249}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e13630d024c0e4481978fbce6c379053, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  duration: 15
 --- !u!1 &1152598173
 GameObject:
   m_ObjectHideFlags: 0
