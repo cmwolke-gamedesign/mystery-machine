@@ -9,7 +9,7 @@ public class MysteryMachine : MonoBehaviour, IInteractable
   private List<Item> addedItems = new List<Item>();
   public GameObject headSlot, flowerSlot, cakeSlot, necklaceSlot, mirrorShardsSlot;
   private Dictionary<Item, GameObject> itemSlots;
-  public List<string[]> lookAtDialogue;
+  public string[] lookAtDialogue;
   private int lookAtDialogueIdx = 0;
 
   private Animator _anim;
@@ -45,10 +45,7 @@ public class MysteryMachine : MonoBehaviour, IInteractable
 
   public void LookAt()
   {
-    Dialogue.Instance.SaySomething(lookAtDialogue[lookAtDialogueIdx]);
-    if (lookAtDialogueIdx != lookAtDialogue.Count - 1) {
-      lookAtDialogueIdx++;
-    }
+    Dialogue.Instance.SaySomething(lookAtDialogue);
   }
 
   private void MachineAssembled() 
